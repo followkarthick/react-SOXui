@@ -1,0 +1,71 @@
+h1, p {
+  font-family: Lato;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+#mainContain {
+	background:white;
+	color: rgb(10, 2, 2);
+}
+
+.txtBox{
+
+  margin-left: 85px;
+    border-radius: 5px;
+}
+
+/* Style the counter cards */
+
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+label {
+    
+    font-size: 18px;
+    color: #333;
+    height: 20px;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+input {
+    height: 20px;
+    width: 300px;
+    
+    margin-top: 10px;
+    margin-right: 10px;
+    float: left;
+    border: none;
+    border-bottom: 0.5px solid #555353;
+    overflow: hidden;  
+    outline: none;  
+}

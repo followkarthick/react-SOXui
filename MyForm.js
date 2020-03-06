@@ -9,7 +9,7 @@ export default () => {
   const [linuxDetails, setLinuxDetails] = useState('');
   const [weblogicDetails, setWeblogicDetails] = useState('');
 
-  const submitValue = () => {
+  const submitValue = async () => {
     const frmdetails = {
       'applicationName': applicationName,
       'managerName': managerName,
@@ -17,8 +17,19 @@ export default () => {
       'dbDetails': dbDetails,
       'linuxDetails': linuxDetails,
       'weblogicDetails': weblogicDetails
+      
     }
     alert(JSON.stringify(frmdetails));
+          let res = await fetch('https://www.mocky.io/v2/5e623983300000ec804d588e', {
+      method: "POST",
+      body: JSON.stringify(frmdetails),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }});
+      let response = await res.json();
+      console.log(response);
+      alert(JSON.stringify(response));
   }
 
   return (

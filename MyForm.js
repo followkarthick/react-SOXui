@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import DutiesTable from "./DutiesTable";
 import styled from 'styled-components';
 
+const API_URL = "https://www.mocky.io/v2/5e623983300000ec804d588e";
+ const API_URLB = "https://www.mocky.io/v2/5e62a49a300000ec804d5b79";
 export default () => {
+  const [details, setDetails] = useState([]);
   const [applicationName, setapplicationName] = useState('');
   const [managerName, setmanagerName] = useState('');
   const [gitlabDetails, setgitlabDetails] = useState('');
@@ -17,24 +21,27 @@ export default () => {
       'dbDetails': dbDetails,
       'linuxDetails': linuxDetails,
       'weblogicDetails': weblogicDetails
-      
+
     }
     alert(JSON.stringify(frmdetails));
-          let res = await fetch('https://www.mocky.io/v2/5e623983300000ec804d588e', {
+    let res = await fetch(API_URLB, {
       method: "POST",
       body: JSON.stringify(frmdetails),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      }});
-      let response = await res.json();
-      console.log(response);
-      alert(JSON.stringify(response));
+      }
+    });
+    let response = await res.json();
+    console.log(response);
+    alert(JSON.stringify(response));
+    setDetails(details = response);
   }
 
   return (
-    <div>
+    <div >
       <TitleHeader>Segregation Of Duties  </TitleHeader>
+      <div style={{display: 'flex',direction: 'column'}}>
       <SearchContainer>
         <CardBox>
           <CardBoxHeader> Search Options</CardBoxHeader>
@@ -49,6 +56,8 @@ export default () => {
 
         </CardBox>
       </SearchContainer>
+      <DutiesTable data={details} />
+      </div>
     </div>
   )
 }
@@ -62,6 +71,7 @@ const SearchResults = styled.div`
 
 const SearchContainer = styled.div`
   display: flex;
+  
 `;
 
 
@@ -124,7 +134,7 @@ var submitButtonStyle = {
   color: "#FFF",
   marginLeft: 100,
   marginRight: 50,
-  marginTop: 20, 
+  marginTop: 20,
   outline: "none"
 }
 var clearButtonStyle = {

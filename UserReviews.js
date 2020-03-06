@@ -9,7 +9,7 @@ class UserReviews extends Component {
         <h2>User Reviews - Page WORK IN PROGRESS</h2>
         <p> User Reviews - Page Content will come here
         </p>
-        <MyForm/>
+        
       </div>
     );
   }

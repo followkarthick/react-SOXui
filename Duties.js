@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import FormContainer from './FormContainer'
+import FormContainer from './FormContainer';
+import MyForm from './MyForm';
 
 class Duties extends Component {
   render() {
     return (
-      
+     
       <div>
-        
-      <FormContainer/>
-      </div>
-      
+       <MyForm/>
+        </div> 
+       
       
     );
   }
